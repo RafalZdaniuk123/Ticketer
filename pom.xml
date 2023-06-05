@@ -11,10 +11,17 @@
 	<groupId>rzdaniuk.com</groupId>
 	<artifactId>ticketer</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
 	<name>ticketer</name>
 	<description>System management for train ticket shop </description>
+	<modules>
+		<module>main</module>
+		<module>customer</module>
+		<module>admin</module>
+	</modules>
 	<properties>
 		<java.version>17</java.version>
+		<spring-boot-starter-jdbc.version>3.0.4</spring-boot-starter-jdbc.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -33,26 +40,19 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+			<version>${spring-boot-starter-jdbc.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.30</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<excludes>
-						<exclude>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</exclude>
-					</excludes>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
 
 </project>
