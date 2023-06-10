@@ -18,7 +18,7 @@ public class AdminCustomersController {
     private final AdminCustomersService adminCustomersService;
 
     @GetMapping("/getAll")
-    public ResponseEntity<String> getAllCustomers() {
-        return new ResponseEntity<>(adminCustomersService.allUsers().toString(), HttpStatus.OK);
+    public ResponseEntity<List<UserDto>> getAllCustomers() {
+        return new ResponseEntity<>(adminCustomersService.allUsers(), HttpStatus.OK);
     }
 }
