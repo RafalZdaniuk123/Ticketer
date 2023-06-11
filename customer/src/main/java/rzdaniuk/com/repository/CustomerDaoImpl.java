@@ -14,8 +14,21 @@ public class CustomerDaoImpl implements CustomerDao {
 
     @Override
     public CustomerDto getCustomerById(Integer id) {
-        String sql = "SELECT * FROM users WHERE id = ?";
-        return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(CustomerDto.class), id);
+        String getCustomerByIdSql = "SELECT * FROM users WHERE id = ?";
+        return jdbcTemplate.queryForObject(getCustomerByIdSql, new BeanPropertyRowMapper<>(CustomerDto.class), id);
     }
+
+    @Override
+    public void createCustomer(CustomerDto customerDto) {
+        String createCustomerSql = "INSERT INTO `users`(`username`, `password`, `email`, `userbalance`) VALUES (?,?,?,?) ";
+        jdbcTemplate.update(createCustomerSql, customerDto.getUsername(), customerDto.getPassword(), customerDto.getEmail(), customerDto.getUserbalance());
+    }
+
+    @Override
+    public void deleteCustomer(Integer id) {
+        String deleteCustomerSql = "DELETE FROM users WHERE id = ?";
+        jdbcTemplate.update(deleteCustomerSql, id);
+    }
+
 
 }
