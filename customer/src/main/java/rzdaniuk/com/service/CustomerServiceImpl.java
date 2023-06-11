@@ -14,4 +14,15 @@ public class CustomerServiceImpl implements CustomerService {
     public CustomerDto getCustomerById(Integer id) {
         return customerDao.getCustomerById(id);
     }
+
+    @Override
+    public void createCustomer(CustomerDto customerDto) {
+        customerDto.setUserbalance(1000.0);
+        customerDao.createCustomer(customerDto);
+    }
+
+    @Override
+    public void deleteCustomer(Integer id) {
+        customerDao.deleteCustomer(id);
+    }
 }
