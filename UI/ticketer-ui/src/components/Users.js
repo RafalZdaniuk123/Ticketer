@@ -1,10 +1,12 @@
-const Users = (props) =>{
+import { Component } from 'react'
+import '../App.css'
+class Users extends Component{
     
     
-    const createUser = () =>{
-        console.log("Bedzie create")
-        
-    }
+  state = {
+    users: [],
+  }
+
 
     const thStyle = {
         backgroundColor: 'grey',
@@ -40,7 +42,7 @@ const Users = (props) =>{
         color: "white"
     }
     const users = props.users.map(user => (
-      
+
         <tr key={user.id} style={tableStyle}>
               <td style={tableStyle}>{user.username}</td>
               <td style={tableStyle}>{user.password}</td>
@@ -58,25 +60,49 @@ const Users = (props) =>{
               <td style={tableStyle}><button style={buttonConfirmStyle}>Edit</button></td>
         </tr>
        ))
-       
+
     return(
-        <table style={tableStyle}>
+
+    <div>
+        <table className="tableStyle">
             <tr>
-                <th style={thStyle}>
-                    Name
+                <th className="thStyle">
+                 Name
+                 </th>
+                 <th className="thStyle">
+                Password
                 </th>
-                <th style={thStyle}>
-                    Password
+                <th className="thStyle">
+                delete
                 </th>
-                <th style={thStyle}>
-                    delete
-                </th>
-                <th style={thStyle}>
-                    edit
+                <th className="thStyle">
+                edit
                 </th>
             </tr>
-                {users}
-        </table>
+        
+        
+        {this.state.users.map(user => (
+      
+            <tr key={user.id} className="tableStyle">
+            <td className="tableStyle">{user.username}</td>
+            <td className="tableStyle">{user.password}</td>
+            <td className="tableStyle"><button onClick={(e) => {
+              console.log("Deleting ... " + user.id)
+              const url = "http://localhost:8080/v1/customer/" + user.id;
+              fetch(url, {method: 'DELETE'})
+              .then((response) => {
+                  if(!response.ok) {
+                      throw new Error('Something went wrong during delete operation')
+                  }
+                  window.location.reload();
+              })
+            }} className="buttonAlertStyle">Delete</button></td>
+                <td className="tableStyle"><button className="buttonConfirmStyle">Edit</button></td>
+            </tr>
+         ))}
+          </table>
+    </div>
     ) 
+   }
 }
 export default Users;

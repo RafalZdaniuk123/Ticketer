@@ -36,3 +36,59 @@
     transform: rotate(360deg);
   }
 }
+
+.thStyle {
+        background: grey;
+        border: 1px solid #ddd;
+        border-collapse: collapse;
+        width: 100%;
+        padding: 8px;
+    }
+.tableStyle  {
+        border: 1px solid #ddd;
+        border-collapse: collapse;
+        width: 100%;
+        padding: 8px;
+    }
+.buttonConfirmStyle {
+        background: rgb(0, 128, 0);
+        border-collapse: collapse;
+        border: none;
+        text-align: center;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        color: white
+    }
+    
+.buttonConfirmStyle:hover {
+      background: rgb(0, 178, 0);
+      border-collapse: collapse;
+      border: none;
+      text-align: center;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      color: white
+    }
+.buttonAlertStyle {
+        background: rgb(197, 0, 0);
+        border-collapse: collapse;
+        border: none;
+        text-align: center;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        color: white
+    }
+
+.buttonAlertStyle:hover{
+        background: red;
+        border-collapse: collapse;
+        border: none;
+        text-align: center;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        color: white
+}
